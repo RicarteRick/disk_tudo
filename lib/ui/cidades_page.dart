@@ -7,7 +7,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-const request = "http://192.168.100.31:8087/api/private/Cidade/findAll";
+const request = "http://192.168.100.35:8087/api/private/Cidade/findAll";
 
 var cidades = List();
 var comecou = false;
@@ -71,6 +71,9 @@ class _EscolhaCidadeState extends State<EscolhaCidade>{
     save();
     carregouLista = false;
     home_page.carrega();
+    Navigator.pushReplacement(context,
+            Transicao(builder: (context) => home_page.Home())
+        );
     //home_page.criouLista = false;
   }
 

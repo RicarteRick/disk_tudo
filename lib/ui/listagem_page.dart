@@ -18,7 +18,7 @@ final empresasId = List();
 var empresasGeral = List();
 
 Future<Map> getData(int cidadeId, int segmentoId) async {
-  var request = "http://192.168.100.31:8087/api/private/Empresa/findByCidadeOuSegmento?cidadeId=$cidadeId&segmentoId=$segmentoId";
+  var request = "http://192.168.100.35:8087/api/private/Empresa/findByCidadeOuSegmento?cidadeId=$cidadeId&segmentoId=$segmentoId";
   int i = 0;
   http.Response response = await http.get(request);
   //print(json.decode(response.body));
@@ -146,7 +146,7 @@ class _ListagemState extends State<Listagem> {
                                 ),
                                 duration: Duration(milliseconds: 200),
                                 //child: Text("${empresasDesc[j-1]} |${widget.cidadeId}|${widget.segmentoId}"),
-                                child: Text("${itemNome[indexItem]} |${widget.cidadeId}|${widget.segmentoId}"),
+                                child: Text("${itemNome[indexItem]}"),
                               ),
                               AnimatedDefaultTextStyle(
                                 style: _selecionado[j-1] ? TextStyle(

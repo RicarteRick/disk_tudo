@@ -7,8 +7,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-const requestSegmentos = "http://192.168.100.31:8087/api/private/Segmento/findAll";
-const requestCidades = "http://192.168.100.31:8087/api/private/Cidade/findAll";
+const requestSegmentos = "http://192.168.100.35:8087/api/private/Segmento/findAll";
+const requestCidades = "http://192.168.100.35:8087/api/private/Cidade/findAll";
 final cidades = List();
 final cidadesId = List();
 final segmentos = List();
@@ -112,7 +112,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.only(left: 0.0, top: 5.0, right: 15.0),
                 child: ListTile(
                   leading: Icon(icones[i], size: 40, color: Colors.white,),
-                  title: Text("${segmentos[i]} cidade: ${cidades[selecionadaIndex]} do id: ${cidadesId[selecionadaIndex]}", style: TextStyle(fontSize: 18, color: Colors.white),),
+                  title: Text("${segmentos[i]}", style: TextStyle(fontSize: 18, color: Colors.white),),
                 )
             )
         ),
@@ -189,7 +189,20 @@ class _HomeState extends State<Home> {
           },
           padding: EdgeInsets.only(left: 15.0),
         ),
-        title: Text("Disk Tudo!", style: TextStyle(color: Colors.white),),
+        title: Row(children: <Widget>[
+          Text("DiskTudo", style: TextStyle(color: Colors.white),),
+          Container(
+            width: 219,
+          
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+              Icon(Icons.location_city, size: 16),
+              Text(" ${cidades[selecionadaIndex]}", style: TextStyle(fontSize: 14, color: Colors.white),)
+            ],),
+          ),
+        ],),
+        //title: Text("DiskTudo", style: TextStyle(color: Colors.white),),
         centerTitle: false,
       ),
       body: FutureBuilder(
